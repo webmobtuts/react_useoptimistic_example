@@ -94,6 +94,7 @@ const Chat = () => {
             <div className="chat-messages">
                 <ul>
                     {
+                        optimisticMessages.length > 0 ?
                         optimisticMessages.map((message, index) => {
                             return (
                                 <li key={index} className={messageClass(message, index)}>
@@ -108,7 +109,7 @@ const Chat = () => {
                                     <time>{timeAgo(message.time)}</time>
                                 </li>
                             )
-                        })
+                        }) : <span style={{display: "flex", justifyContent: "center", fontSize: "13px", color: "rgb(105 105 105)"}}>Send your first message</span>
                     }
                 </ul>
             </div>
